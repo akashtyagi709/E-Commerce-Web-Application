@@ -19,7 +19,7 @@ This project is an e-commerce website built using Angular, which fetches data fr
 
  Responsive design
 
-# Some Commands for setting up the environment and add depenecies
+# Some Commands for setting up the environment and add dependencies
 
 1. npm install bootstrap
 
