@@ -1,0 +1,63 @@
+<div class="container">
+  <h3 class=" mt-4">Your cart</h3>
+  <p class="fst-italic">{{cartData.User_Cart_Data.length}} item ships at checkout</p>
+
+
+  <div class="row mx-0">
+    <div class="col-12 col-md-8">
+      <div class="row">
+       
+        <div class="col-12 py-2" *ngIf="cartData.User_Cart_Data.length">
+          
+          <div class=" card mb-2 " *ngFor="let data of cartData.User_Cart_Data; let i=index">
+            <div class="row  mt-md-1 mt-3 mx-0 p-0 " >
+            <div class="col-4 my-2 text-center">
+              <img [src]="data.image" alt="image_not_found" class="productImage " style="object-fit: contain;">
+            </div>
+            <div class="col-7 h6">
+              <p class="mx-md-0 fw-bold fst-italic mb-2"> {{data.title}}</p>
+               <div class="fw-bold d-flex mt-3 mb-2">QTY :
+                <div class="minus mx-3 text-center text-white c-pointer" (click)="quanitiyFunction('minus',data)"><i class="fa fa-minus p-1"></i></div>{{data.quantity}}
+                <div class="minus mx-3 text-center text-white c-pointer" (click)="quanitiyFunction('add',data)"><i class="fa fa-plus p-1"></i></div>
+              </div>
+              <p class="mx-md-0"> <small>₹ </small> {{data.totalAmount | number: '1.2-2'}}</p>
+            </div>
+            <div class="col-1 text-center my-auto">
+              <i class="fa fa-trash c-pointer text-danger my-auto" (click)="removeItem(data,i)"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="col-12 rounded btn mt-3 offset-5 mb-2 card text-center addMore p-3 "
+        routerLink="">
+        <i class="fa fa-plus mt-3"></i>
+        Add Product
+      </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 mt-4 mt-md-0">
+      <div class="row">
+        <div class="col-12 border card shadow mx-md-3 mx-0" style="background-color: rgb(243, 232, 209);">
+          <h5 class="mt-2 mb-2 py-3 text-center ">Order Summary</h5>
+          <div class="row mx-0 smaller mb-3">
+            <div class="col-8  p-1">Subtotal </div>
+            <div class="col-4 px-1">₹ {{Subtotal | number: '1.2-2'}}</div>
+            <div class="col-8 p-1">Shipping Discount </div>
+            <div class="col-4 px-1">₹ {{shiping_discount}}</div>
+            <div class="col-8 p-1">Shipping & Handeling </div>
+            <div class="col-4 px-1">₹ {{shiping_and_billing}}</div>
+            <div class="col-8 p-1">Tax </div>
+            <div class="col-4 px-1"> ₹ 0.00</div>
+            <div class="borderline mx-1 mt-2"></div>
+            <div class="col-12 text-danger mb-2"><sup>*</sup>Shipping charges are fixed for every order
+            </div>
+            <div class="col-8  py-1 fw-bold h6"> Total </div>
+            <div class="col-4 px-1"> ₹ {{TotalAmount | number: '1.2-2'}}</div>
+            <button class="w-100 btn mt-1 bg-dark text-white" [disabled]="this.cartData.User_Cart_Data.length==0"
+              (click)="checkout()">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

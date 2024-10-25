@@ -1,0 +1,11 @@
+<div class="container orderConfirmScreen">
+  <div class="confirmMsg my-3">
+    <h2>Order Confirmed</h2>
+    <p>Order Number <span class="fw-bold">{{orderNum}}</span></p>
+    <p>Your Order of <span class="fw-bold">₹ {{cartData.TotalAmount}}</span> has been confirmed a confirmation has been sent to your registered email address</p>
+    <p>If you don't recieve your order confirmation in the next hour, please chek your spam folder.</p>
+    <div class="text-center">
+      <button class="btn btn-dark rounded-pill" (click)="moveToHome()" routerLink="">Continue Shopping</button>
+    </div>
+  </div>
+</div>

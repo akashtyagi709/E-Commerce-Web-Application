@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="card card-body shadow rounded  my-5">
+    <div class="row mx-0 p-3">
+      <div class="col-12 col-md-6 text-center">
+        <img [src]="selectedProductDetails.image" class="productImg mb-4 mt-4" alt="image_not_found">
+      </div>
+      <div class="col-12 col-md-6 ">
+        <h4 class="fst-italic">{{selectedProductDetails.title}}</h4>
+        <h3 class="text-warning">₹ {{selectedProductDetails.price}}</h3>
+        <h6 class="mt-2">Review - {{selectedProductDetails.rating?.rate}}</h6>
+        <small class="mt-3 text-secondary">{{selectedProductDetails.description}}</small>
+        <div class="fw-bold d-flex mt-3">QTY :
+          <div class="minus mx-3 text-center text-white c-pointer" (click)="quanitiyFunction('minus',prodQuantity)"><i class="fa fa-minus"></i></div> {{prodQuantity}}
+          <div class="minus mx-3 text-center text-white c-pointer" (click)="quanitiyFunction('add',prodQuantity)"><i class="fa fa-plus"></i></div>
+        </div>
+        <button *ngIf="isProductAdded==false" class="btn btn-dark mt-3" (click)="addtoCart(selectedProductDetails)"><i class="fa fa-shopping-bag me-2"></i> Add to Cart</button>
+        <button *ngIf="isProductAdded==true" class="btn btn-danger mt-3" (click)="removeFromCart(selectedProductDetails)"><i class="fa fa-remove me-2"></i>Remove</button>
+        <button class="btn btn-outline-dark mt-3 mx-3" (click)="order(selectedProductDetails)">Order</button>
+      </div>
+    </div>
+  </div>
+</div>

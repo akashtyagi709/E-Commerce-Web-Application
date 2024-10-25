@@ -1,0 +1,14 @@
+.productImg{
+height: 250px;
+width: 250px;
+}
+.minus{
+    background-color: rgb(180, 180, 180);
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+}
+
+.orderbtn{
+    background-color: #329dcd;
+}

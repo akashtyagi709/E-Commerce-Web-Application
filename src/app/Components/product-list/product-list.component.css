@@ -1,0 +1,10 @@
+.product {
+  min-height: 30%;
+  max-height: 40%;
+  width: 100%;
+}
+.productImg {
+  min-height: 100px;
+  max-height: 120px;
+  max-width: 120px;
+}

@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row text-end py-3">
+
+    <div class="col-12 col-md-3 col-sm-6 d-flex   mb-1 mb-sm-0 "> 
+      <input class="form-control" placeholder="Search by Title" type="text" id="titleSearch" [(ngModel)]="titleSearch" (input)="filterByTitle(titleSearch)" />
+   </div>
+    <div class="col-12 col-md-3 col-sm-6 d-flex   mb-1 mb-sm-0 "> 
+       <select class="form-select" id="category" [(ngModel)]="categorySelect" (change)="filterByCategory(categorySelect)">
+        <option *ngFor="let category of CategoryArray" [value]="category.value">{{ category.label }}</option>
+       </select>
+    </div>
+
+     <div class="col-12 col-md-3 col-sm-6 d-flex  mb-1 mb-sm-0"> 
+      <select id="priceRange" class="form-select" [(ngModel)]="priceRangeSerach"  (change)="filterByPrice(priceRangeSerach)">
+        <option value="" selected disabled>Select Price Range</option>
+        <option *ngFor="let range of priceRanges" [ngValue]="range">{{ range.label }}</option>
+      </select> 
+    </div>
+
+    <div class="col-12 col-md-3 col-sm-6 d-flex  mt-1 mt-sm-0 ">
+      <select class="form-select" id="" [(ngModel)]="sort" (change)="filter()">
+        <option value="" selected disabled>Filter</option>
+        <option value="lth">Low to High</option>
+        <option value="htl">High to Low</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-12 my-2" *ngFor="let data of PaginationArray">
+      <div class="card rounded h-100 shadow-lg text-center ">
+        <div class="card-body">
+          <div class="product">
+            <img [src]="data.image" alt="image not found" class="productImg w-100">
+            <p class="mt-2 text-center fw-bold">₹{{data.price}}</p>
+            <p class="mt-2 text-center">{{data.title}}</p>
+           </div>
+        </div>
+        <div class="card-footer">
+          <button *ngIf="data.alreadyAdded" class="btn btn-success" >Already Added</button>
+          <button *ngIf="!data.alreadyAdded" class="btn btn-outline-dark" (click)="selectProduct(data)">View more</button>
+        </div>
+      </div>
+    </div>
+    <div class="text-center my-4" *ngIf="PaginationArray.length">
+      <button *ngIf="PaginationArray.length!==DataSource.length" class="btn btn-dark py-2 rounded-pill" (click)="ViewMore()">Load More</button>
+      <p *ngIf="PaginationArray.length==DataSource.length" class="fw-bold">You have reached the end.</p>
+    </div>
+  </div>
+
+  <ng-container class="" *ngIf="this.productService.apiStatus=='pending'">
+    <div class="text-center my-4 display-4">
+      Loading...
+    </div>
+  </ng-container>
+
+  <div *ngIf="PaginationArray.length==0 && this.productService.apiStatus!=='pending'">
+    <div class="text-center my-4 display-4">
+      Data not found.
+    </div>
+  </div>
+
+  
+
+</div>

@@ -1,0 +1,6 @@
+.orderConfirmScreen{
+  display: grid;
+  align-items: center;
+  text-align: center;
+  height: calc(100vh - 75px);
+}

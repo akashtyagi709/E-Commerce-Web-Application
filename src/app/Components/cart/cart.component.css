@@ -1,0 +1,25 @@
+.smaller {
+    font-size: small;
+}
+
+.borderline {
+    height: 1px;
+    width: 96%;
+    background-color: rgb(32, 28, 28);
+}
+
+.productImage {
+    height: 100px;
+    width: 100px;
+}
+.addMore{
+    height: 100px;
+    width: 20%;
+    background-color: rgb(212, 210, 210);
+}
+.minus{
+    background-color: rgb(180, 180, 180);
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+}

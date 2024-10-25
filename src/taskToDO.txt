@@ -1,0 +1,25 @@
+1. Product Listing Page:
+   
+   Implement sorting functionality by price.
+
+
+2.Product Detail Page:
+
+// ----Add a button to add the product to the shopping cart.
+
+3.Shopping Cart
+
+// ---- Create a CartService to manage the cart state.
+
+//--- Allow users to update the quantity or remove items.
+ 
+
+4.User Authentication
+// ---  Implement a login form using reactive forms.
+
+
+// --- Use an HTTP interceptor to attach an authentication token to outgoing requests.
+
+
+// --- Protect the checkout process using a route guard.
+
